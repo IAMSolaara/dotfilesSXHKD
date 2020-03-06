@@ -1,0 +1,25 @@
+# bind keys to rofi commands --lorecast162
+super + d
+	rofi -show combi
+super + shift + q
+	sh -c 'rofiPoweroff.sh'
+super + Tab
+	rofi -show window
+
+# bind prtscrn for screenshots --lorecast162
+Print
+	scrot -e 'mv $f ~/Screenshots/%Y-%m-%d_%H:%M:%S_$wx$h_scrot.png'
+
+# Use pactl to adjust volume in PulseAudio. --lorecast162
+XF86Audio{Raise,Lower}Volume
+	pactl set-sink-volume @DEFAULT_SINK@ {+1%,-1%}
+XF86Audio{_,Mic}Mute
+	pactl set-{sink-mute @DEFAULT_SINK@,source-mute @DEFAULT_SOURCE@} toggle
+
+# bind keys for MPC commands --lorecast162
+XF86Audio{Play,Stop,Prev,Next}
+	mpc {toggle,stop,prev,next}
+
+# bind misc keys --lorecast162
+XF86Calculator
+	sh -c 'viewmanpages.sh'
